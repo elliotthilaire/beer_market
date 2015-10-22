@@ -5,7 +5,15 @@
   <div class="row">
     <div class="col-md-4">
 
-      <h1>Todo List</h1>
+      <h1>{{ _todos.size }} Todo List</h1>
+
+      <button e-click="check_all">Check All ({{ incomplete }})</button>
+
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {{ percent_complete }}%;" >
+          {{ percent_complete }}%
+        </div>
+      </div>
 
       <table class="todo-table">
         {{_todos.each_with_index do |todo, index| }}
