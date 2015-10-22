@@ -11,6 +11,11 @@ module Main
       # Add code for when the about view is loaded
     end
 
+    def add_drink
+      _drinks << { name: page._new_drink_name, price: 7 }
+      page._new_drink_name = ''
+    end
+
     def add_todo
       _todos << { name: page._new_todo }
       page._new_todo = ''
