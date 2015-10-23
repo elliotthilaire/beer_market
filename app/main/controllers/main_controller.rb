@@ -12,7 +12,8 @@ module Main
     end
 
     def add_drink
-      _drinks << { name: page._new_drink_name, price: page._new_drink_price }
+      drinks << { name: page._new_drink_name, price: page._new_drink_price }
+
       page._new_drink_name = ''
       page._new_drink_price = ''
     end
@@ -21,17 +22,27 @@ module Main
       # add to purchase history
       local_store._purchases << { time: Time.now, name: drink._name, price: drink._price }
 
-      # increase price of drink
-      drink._price += 3
+      increase_price(drink)
+      decrease_prices
+    end
 
-      # decrease price of all other drinks
-      _drinks.reject(drink).each do |drink|
-        drink._price -= 1
+    def clear_purchases
+      local_store._purchases.reverse.each do |purchase|
+        purchase.destroy
       end
     end
 
-
     private
+
+    def increase_price(drink)
+      drink.price += 3
+    end
+
+    def decrease_prices
+      drinks.each do |drink|
+        drink.price -= 1
+      end
+    end
 
     # The main template contains a #template binding that shows another
     # template.  This is the path to that template.  It may change based
