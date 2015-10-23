@@ -21,9 +21,12 @@
       <form e-submit="add_drink" role="form">
         <div class="form-group">
           <label>Add Drink</label>
-          <input class="form-control" type="text" value="{{ page._new_drink_name }}" />
+          <input class="form-control" placeholder="name" type="text" value="{{ page._new_drink_name }}" />
+          <input class="form-control" placeholder="price" type="text" value="{{ page._new_drink_price }}" />
+          <input type="submit" value="Submit">
         </div>
       </form>
     </div>
 
   </div>
+

@@ -12,8 +12,9 @@ module Main
     end
 
     def add_drink
-      _drinks << { name: page._new_drink_name, price: 7 }
+      _drinks << { name: page._new_drink_name, price: page._new_drink_price }
       page._new_drink_name = ''
+      page._new_drink_price = ''
     end
 
     def purchase(drink)
