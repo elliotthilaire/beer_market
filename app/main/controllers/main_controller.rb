@@ -16,6 +16,19 @@ module Main
       page._new_drink_name = ''
     end
 
+    def purchase(drink)
+      # add to purchase history
+      page._purchases << { time: Time.now, name: drink._name, price: drink._price }
+
+      # increase price of drink
+      drink._price += 10
+
+      # decrease price of all other drinks
+      _drinks.reject(drink).each do |drink|
+        drink._price -= 1
+      end
+    end
+
     def add_todo
       _todos << { name: page._new_todo }
       page._new_todo = ''

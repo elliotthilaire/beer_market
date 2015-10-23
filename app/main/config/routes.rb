@@ -2,6 +2,7 @@
 
 client '/about', action: 'about'
 client '/todos', action: 'todos'
+client '/exchange', action: 'exchange'
 client '/menu', action: 'menu'
 
 # Routes for login and signup, provided by user_templates component gem
