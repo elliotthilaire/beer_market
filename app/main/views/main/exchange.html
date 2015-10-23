@@ -27,7 +27,7 @@
       <h1>Purchases</h1>
 
       <table class="todo-table">
-        {{page._purchases.each_with_index do |purchase, index| }}
+        {{page._purchases.reverse.each_with_index do |purchase, index| }}
         <!-- Use params to store the current index -->
         <tr>
           <td>{{ purchase._time  }} </td>
