@@ -1,7 +1,6 @@
 # See https://github.com/voltrb/volt#routes for more info on routes
 
 client '/about', action: 'about'
-client '/todos', action: 'todos'
 client '/exchange', action: 'exchange'
 client '/menu', action: 'menu'
 
