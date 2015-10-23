@@ -35,7 +35,9 @@ module Main
     private
 
     def increase_price(drink)
-      drink.price += 3
+      drinks.count.then do |count|
+        drink.price += count
+      end
     end
 
     def decrease_prices
