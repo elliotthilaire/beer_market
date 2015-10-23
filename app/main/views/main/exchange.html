@@ -3,13 +3,19 @@
 
 <:Body>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-12">
 
       <h1>Exchange</h1>
 
       <table class="todo-table">
+        <tr>
+          <th>Beer</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
         {{_drinks.each_with_index do |drink, index| }}
         <!-- Use params to store the current index -->
+
         <tr>
           <td>{{ drink._name  }} </td>
           <td>{{ drink._price }} </td>
@@ -21,16 +27,23 @@
 
   </div>
 
-  <div class="row">
-    <div class="col-md-4">
+  <hr />
 
-      <h1>Purchases</h1>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h3>Purchase History</h3>
 
       <table class="todo-table">
-        {{page._purchases.reverse.each_with_index do |purchase, index| }}
+        <tr>
+          <th>Time</th>
+          <th>Beer</th>
+          <th>Price</th>
+        </tr>
+        {{local_store._purchases.reverse.each_with_index do |purchase, index| }}
         <!-- Use params to store the current index -->
         <tr>
-          <td>{{ purchase._time  }} </td>
+          <td>{{ purchase._time.strftime("%T.%L") }} </td>
           <td>{{ purchase._name  }} </td>
           <td>{{ purchase._price }} </td>
         </tr>

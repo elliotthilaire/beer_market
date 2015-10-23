@@ -18,7 +18,7 @@ module Main
 
     def purchase(drink)
       # add to purchase history
-      page._purchases << { time: Time.now, name: drink._name, price: drink._price }
+      local_store._purchases << { time: Time.now, name: drink._name, price: drink._price }
 
       # increase price of drink
       drink._price += 10

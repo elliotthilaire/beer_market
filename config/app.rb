@@ -8,7 +8,7 @@ Volt.configure do |config|
   # Basic App Info (stuff you should set)
   #######################################
   config.domain = 'volt.com'
-  config.app_name = 'Volt'
+  config.app_name = 'The Exchange'
   config.mailer.from = 'Volt <no-reply@volt.com>'
 
   ############
@@ -102,9 +102,9 @@ Volt.configure do |config|
   #
   # Encrypt message bus - messages on the message bus are encrypted by default
   # using rbnacl.
-  
+
   # config.message_bus.disable_encryption = true
-  
+
   #
   # ## MessageBus Server -- the message bus binds to a port and ip which the
   # other volt instances need to be able to connect to.  You can customize
