@@ -21,7 +21,7 @@ module Main
       local_store._purchases << { time: Time.now, name: drink._name, price: drink._price }
 
       # increase price of drink
-      drink._price += 10
+      drink._price += 3
 
       # decrease price of all other drinks
       _drinks.reject(drink).each do |drink|
@@ -29,40 +29,6 @@ module Main
       end
     end
 
-    def add_todo
-      _todos << { name: page._new_todo }
-      page._new_todo = ''
-    end
-
-    def current_todo
-      _todos[(params._index || 0).to_i]
-    end
-
-    def check_all
-      _todos.each { |todo| todo._completed = true }
-    end
-
-    def completed
-      _todos.count { |t| t._completed }
-    end
-
-    def incomplete
-    # because .size and completed both return promises, we need to
-    # call .then on them to get their value.
-      _todos.size.then do |size|
-        completed.then do |completed|
-          size - completed
-        end
-      end
-    end
-
-    def percent_complete
-      _todos.size.then do |size|
-        completed.then do |completed|
-          (completed / size.to_f * 100).round
-        end
-      end
-    end
 
     private
 
