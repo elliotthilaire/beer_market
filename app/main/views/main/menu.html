@@ -3,16 +3,16 @@
 
 <:Body>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-12">
 
       <h1>Manage the Beer List</h1>
 
       <table class="todo-table">
-        {{_drinks.each_with_index do |drink, index| }}
+        {{drinks.each_with_index do |drink, index| }}
         <!-- Use params to store the current index -->
         <tr>
-          <td>{{ drink._name  }} </td>
-          <td>{{ drink._price }} </td>
+          <td>{{ drink.name  }} </td>
+          <td>{{ drink.price }} </td>
           <td><button e-click="drink.destroy">X</button></td>
         </tr>
         {{ end }}
