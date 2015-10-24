@@ -7,17 +7,6 @@ module Main
       # Add code for when the index view is loaded
     end
 
-    def add_drink
-      drinks.create( { name: page._new_drink_name, price: page._new_drink_price } )
-        .then do 
-          page._new_drink_name = ''
-          page._new_drink_price = ''
-        end
-        .fail do |err|
-          flash._errors << "Unable to save because #{err}"
-        end
-    end
-
     def purchase(drink)
       local_store._purchases << { time: Time.now, name: drink._name, price: drink._price }
       increase_price(drink).then(decrease_prices).then(remove_bankrupt_drinks)
