@@ -7,10 +7,6 @@ module Main
       # Add code for when the index view is loaded
     end
 
-    def about
-      # Add code for when the about view is loaded
-    end
-
     def add_drink
       drinks << { name: page._new_drink_name, price: page._new_drink_price }
 
