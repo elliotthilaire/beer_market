@@ -9,7 +9,6 @@
 
       <table class="todo-table">
         {{drinks.each_with_index do |drink, index| }}
-        <!-- Use params to store the current index -->
         <tr>
           <td>{{ drink.name  }} </td>
           <td>{{ drink.price }} </td>
@@ -25,11 +24,11 @@
             <input class="form-control" placeholder="price" type="text" value="{{ page._new_drink_price }}" />
           </td>
           <td>
-            <button e-click="add_drink">Add</button>
+            <form e-submit="add_drink" role="form"><input type="submit" value="Submit"></form>
           </td>
         </tr>
-
       </table>
+
     </div>
 
   </div>
