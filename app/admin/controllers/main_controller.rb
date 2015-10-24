@@ -1,11 +1,21 @@
 module Admin
   class MainController < Volt::ModelController
+
+    model :store
+
     def index
       # Add code for when the index view is loaded
     end
 
-    def about
-      # Add code for when the about view is loaded
+    def add_drink
+      drinks.create( { name: page._new_drink_name, price: page._new_drink_price } )
+        .then do 
+          page._new_drink_name = ''
+          page._new_drink_price = ''
+        end
+        .fail do |err|
+          flash._errors << "Unable to save because #{err}"
+        end
     end
 
     private

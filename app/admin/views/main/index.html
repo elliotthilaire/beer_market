@@ -1,5 +1,34 @@
 <:Title>
-  Component Index
+  Exchange
 
 <:Body>
-  <h1>Component Index</h1>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>Manage the Beer List</h1>
+
+      <table class="todo-table">
+        {{drinks.each_with_index do |drink, index| }}
+        <tr>
+          <td>{{ drink.name  }} </td>
+          <td>{{ drink.price }} </td>
+          <td><button e-click="drink.destroy">X</button></td>
+        </tr>
+        {{ end }}
+
+        <tr>
+          <td>
+            <input class="form-control" placeholder="name" type="text" value="{{ page._new_drink_name }}" />
+          </td>
+          <td>
+            <input class="form-control" placeholder="price" type="text" value="{{ page._new_drink_price }}" />
+          </td>
+          <td>
+            <form e-submit="add_drink" role="form"><input type="submit" value="Add"></form>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
