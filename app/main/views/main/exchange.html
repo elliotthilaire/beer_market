@@ -13,9 +13,7 @@
           <th>Price</th>
           <th></th>
         </tr>
-        {{_drinks.each_with_index do |drink, index| }}
-        <!-- Use params to store the current index -->
-
+        {{ _drinks.each_with_index do |drink, index| }}
         <tr>
           <td>{{ drink._name  }} </td>
           <td>{{ drink._price }} </td>
@@ -23,8 +21,8 @@
         </tr>
         {{ end }}
       </table>
-    </div>
 
+    </div>
   </div>
 
   <hr />
@@ -41,7 +39,7 @@
           <th>Beer</th>
           <th>Price</th>
         </tr>
-        {{local_store._purchases.reverse.each_with_index do |purchase, index| }}
+        {{ local_store._purchases.reverse.each_with_index do |purchase, index| }}
         <!-- Use params to store the current index -->
         <tr>
           <td>{{ purchase._time.strftime("%T.%L") }} </td>
@@ -50,7 +48,7 @@
         </tr>
         {{ end }}
       </table>
-    </div>
 
+    </div>
   </div>
 
