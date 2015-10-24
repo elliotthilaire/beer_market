@@ -1,7 +1,7 @@
 module ExchangeDashboard
   class MainController < Volt::ModelController
     model :store
-    
+
     def index
       # Add code for when the index view is loaded
     end
