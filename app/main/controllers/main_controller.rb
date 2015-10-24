@@ -8,10 +8,15 @@ module Main
     end
 
     def add_drink
-      drinks << { name: page._new_drink_name, price: page._new_drink_price }
-
-      page._new_drink_name = ''
-      page._new_drink_price = ''
+      drink = { name: page._new_drink_name, price: page._new_drink_price }
+      drinks.create(drink)
+        .then do 
+          page._new_drink_name = ''
+          page._new_drink_price = ''
+        end
+        .fail do |err|
+          flash._errors << "Unable to save because #{err}"
+        end
     end
 
     def purchase(drink)
