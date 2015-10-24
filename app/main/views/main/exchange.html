@@ -15,8 +15,8 @@
         </tr>
         {{ _drinks.each_with_index do |drink, index| }}
         <tr>
-          <td>{{ drink._name  }} </td>
-          <td>{{ drink._price }} </td>
+          <td>{{ drink.name  }} </td>
+          <td>{{ drink.price }} </td>
           <td><button e-click="purchase(drink)">Buy</button></td>
         </tr>
         {{ end }}
