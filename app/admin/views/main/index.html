@@ -18,10 +18,12 @@
 
         <tr>
           <td>
-            <input class="form-control" placeholder="name" type="text" value="{{ page._new_drink_name }}" />
+            <:fields:text placeholder="name"
+              value="{{ page._new_drink_name }}"/>
           </td>
           <td>
-            <input class="form-control" placeholder="price" type="text" value="{{ page._new_drink_price }}" />
+            <:fields:text placeholder="price"
+              value="{{ page._new_drink_price }}"/>
           </td>
           <td>
             <form e-submit="add_drink" role="form"><input type="submit" value="Add"></form>
