@@ -15,11 +15,8 @@ module Main
     end
 
     def purchase(drink)
-      # add to purchase history
       local_store._purchases << { time: Time.now, name: drink._name, price: drink._price }
-
-      increase_price(drink)
-      decrease_prices
+      increase_price(drink).then(decrease_prices).then(remove_bankrupt_drinks)
     end
 
     def clear_purchases
@@ -37,8 +34,20 @@ module Main
     end
 
     def decrease_prices
-      drinks.each do |drink|
+      drinks.all.each do |drink|
         drink.price -= 1
+      end
+    end
+
+    def remove_bankrupt_drinks
+      store.drinks.all.then do |drinks|
+        drinks.each do |drink|
+          drink.price.then do |price|
+            if price < 0
+              drink.destroy
+            end
+          end
+        end
       end
     end
 
