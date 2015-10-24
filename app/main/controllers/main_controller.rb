@@ -8,8 +8,7 @@ module Main
     end
 
     def add_drink
-      drink = { name: page._new_drink_name, price: page._new_drink_price }
-      drinks.create(drink)
+      drinks.create( { name: page._new_drink_name, price: page._new_drink_price } )
         .then do 
           page._new_drink_name = ''
           page._new_drink_price = ''
